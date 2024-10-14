@@ -252,3 +252,19 @@ Vezi [register-flow.png](register-flow.png)
 4. Creați o rută `/authenticate`, care va verifica dacă în URL există un query param `code` și va face un request POST către endpoint-ul
 5. Dacă răspunsul are status code 200, autentificarea a reușit și în browser ar trebui să aveți un cookie numit `auth`
 6. Dacă statusul nu este 200, afișați erorile.
+
+
+
+## Task 2
+
+* pentru status 4xx afisati erorile de la server, nu hardcodati
+* folositi environment variables pentru domeniu cand faceti request-uri la api
+* folositi route loader si action si mutati logica din pagini acolo
+* pentru Alin: foloseste alt layout (UserLayout) pentru rutele fara autentificare
+* faceti un [middelware](https://reactrouter.com/en/main/routers/create-browser-router#middleware) pentru rutele care nu au nevoie de autentificare (login, register ...) si daca user-ul este logat redirectionati catre '/' sau '/home' ...
+* pentru rutele care necesita ca user-ul sa fie logat, implementati un alt middleware care sa verifice daca user-ul este este logat. daca user-ul nu este logat atunci redirectionati user-ul catre o pagina cu 2 butoane: login sau register sau catre pagina .... stiti voi :D
+* logica din middleware sa nu fie pusa in routes.js(x)
+* reenumiti layout-urile corespunzator. MainLayout->UserLayout ...
+* in UserLayout adaugati buton de logout. request /logout si daca raspunsul este 200 redirectionati catre login/register.
+
+
